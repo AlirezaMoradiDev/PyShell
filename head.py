@@ -1,16 +1,15 @@
 from sys import argv, exit
 from os import path
-from pathlib import Path
 from exceptions import exception
-file = open('test.txt', 'r')
-lst = file.readlines()
-print(lst)
-file.close()
+
 def main():
     """
-    head.py <file(s)> <mode[optional]> <count[optional]>
+    head.py <file> <mode[optional]> <count[optional]>
     :return:
     """
+    if len(argv) < 2:
+        raise IOError('Invalid input number')
+
     modes = {
         '-n': 'line',
         '-c': 'bytes'
@@ -33,7 +32,7 @@ def main():
                 num = 10
             try:
                 while counter <= num:
-                    print(f'{counter} {lines[counter - 1]}\n')
+                    print(f'line--> {counter}: {lines[counter - 1]}\n')
                     counter += 1
             except IndexError:
                 print(f'file has {len(lines)} line')

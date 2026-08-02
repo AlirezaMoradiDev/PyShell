@@ -11,7 +11,7 @@ def main():
         '-L': 'long line'
     }
     if len(argv) < 2:
-        raise IOError('')
+        raise IOError('Invalid input number')
     try:
         if not path.isfile(argv[1]):    #is it a file or no?     #py test.txt
             raise IndexError(f'{argv[1]} is not file format... ')
