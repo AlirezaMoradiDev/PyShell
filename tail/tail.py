@@ -3,6 +3,9 @@ from exceptions import exception
 from sys import argv, exit
 
 def main():
+    if len(argv) < 2:
+        raise IOError('Invalid input number')
+
     modes = {
         '-n': 'line',
         '-c': 'bytes'
