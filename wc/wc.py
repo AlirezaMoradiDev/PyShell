@@ -1,6 +1,6 @@
 from sys import argv, exit
 from os import path
-from exceptions import exception
+
 
 def main():
     modes = {

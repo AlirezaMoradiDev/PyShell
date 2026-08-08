@@ -11,7 +11,7 @@ def main():
         '-c': 'bytes'
     }
     if not path.isfile(argv[1]):
-        raise exception.NotFile
+        raise FileNotFoundError('file not found!')
 
     with open(argv[1], 'r') as file:
         lines = file.readlines()

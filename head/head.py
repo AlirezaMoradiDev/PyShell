@@ -15,7 +15,7 @@ def main():
         '-c': 'bytes'
     }
     if not path.isfile(argv[1]):    #is it a file or no?
-        raise IOError('not file')
+        raise FileNotFoundError('file not found!')
 
     with open(argv[1]) as file:
         try:
