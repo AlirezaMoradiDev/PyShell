@@ -1,6 +1,6 @@
-from sys import argv, exit
+from sys import argv
 from os import path
-from exceptions import exception
+# from ..exceptions import exception
 
 def main():
     """
@@ -15,7 +15,7 @@ def main():
         '-c': 'bytes'
     }
     if not path.isfile(argv[1]):    #is it a file or no?
-        raise exception.NotFile
+        raise IOError('not file')
 
     with open(argv[1]) as file:
         try:
@@ -32,10 +32,10 @@ def main():
                 num = 10
             try:
                 while counter <= num:
-                    print(f'line--> {counter}: {lines[counter - 1]}\n')
+                    print(f'line--> {counter}: {lines[counter - 1].rstrip()} \n')
                     counter += 1
             except IndexError:
-                print(f'file has {len(lines)} line')
+                print(f'file has {len(lines)} line !')
 
         elif mode == 'bytes':
             counter = 0
@@ -51,6 +51,6 @@ def main():
             except IndexError:
                  print('To use the -c format, you must also enter the value.')
 
-main()
-
+if __name__ == "__main__":
+    main()
 
